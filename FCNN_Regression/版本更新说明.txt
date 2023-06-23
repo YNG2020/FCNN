@@ -1,0 +1,51 @@
+修订历史
+3/10/2021 创建了第一个版本V1
+
+3/11/2021 完善了说明文档
+
+3/11/2021 说明了新旧版本单双引号不兼容问题（注意帮助文档3）
+
+3/12/2021 发布了第二版本V2，主要更新：
+	1. 提供了按每类样品，打乱输入样品的顺序的功能（注意帮助文档4）
+	2. 能处理一样多谱的数据文件
+
+3/15/2021 修改了第二版本，准备发布第三版本V3（发布日期待定），主要更新：
+	1. 修改了参数设置文件的一些表述
+	2. 读取的数据文件改为从参数设置文件同一目录下读取
+
+3/21/2021 发布了版本V3， 主要更新
+	1. 在帮助文档里说明了小批量大小设置问题（注意帮助文档6）
+	2. 在SGD函数对mini_batch采用了矩阵运算，提高了运算速度（对小规模的数据能快3倍，对大规模数据的速度提升更为明显）
+	3. 提供了训练集代价函数监视，训练集准确率监视，测试集代价函数监视，测试集准确率监视功能，但是如果把这些功能全都启用的话大概会使程序运行的时间变成原来的3倍
+	4. 实现了early stopping，参数调整待研究，经初步实验，这个数值设置为50以上比较好，但是在有更多的理论支撑之前不建议采用该技术
+	5. 该版本没有解决自动调参问题，开发组目前在这方面的理论严重缺失
+	6. 该版本也没有解决深度学习问题，开发组目前在这方面的理论严重缺失
+	7. 实现了dropout，但是配套的max-norm regularization，momentum技术未开发，同样，理论严重缺失
+
+3/24/2021 发布了版本V4，主要更新
+	1. 允许了不同类样品不同数目训练集、测试集的输入（看参数设置文件的新变化）
+	2. 向下兼容了Matlab2016版本
+	3. 实现了SGD with momentum技术，扩大了学习率的取值范围，抑制了oscillation现象
+
+3/27/2021 发布了版本V5， 主要更新
+	1. 实现了与dropout配套的Max-norm功能
+	2. 实现了基于SGD和momentum改进而来的Adam(short for Adaptive Moment Estimation)技术
+	3. 在帮助文档里说明了关于Adam技术的一些问题（注意7）
+
+4/6/2021 发布了版本V6， 主要更新
+	1. 实现了NGD, AdaGrad, RMSprop, Adam, AdaMax, Nadam, AdamW, NadamW optimization
+	2. 提供了结果和参数保存功能（结果以png格式保存，png文件名为相关参数）
+	3. 提供了准确率保存至excel的功能
+	4. 在帮助文档里说明了关于(N)Adam与(N)AdamW技术的一些问题 （注意8）
+	5. 在帮助文档里说明了保存结果的一些问题 （注意9）
+	6. 如果想要对现有的多种SGD optimization 做一定的了解，请参阅该目录下的Gradient descent optimization文件夹
+	7. 如果想要对Dropout技术做一定的了解，请参阅该目录下的Dropout文件夹
+	8. 为了更准确地从神经网络结构上描述该文件，从版本V6开始，将文件夹命名为VX_FCNN（Fully connected neural network
+
+4/10/2021 发布了Regression_FCNN_V1， 主要更新
+	1. 实现了回归预测功能，其它的与之前的版本大致一样
+
+Question: How do you approach utilizing and researching machine learning techniques that are supported almost entirely empirically, as opposed to mathematically? Also in what situations have you noticed some of these techniques fail?
+Answer: You have to realize that our theoretical tools are very weak. Sometimes, we have good mathematical intuitions for why a particular technique should work. Sometimes our intuition ends up being wrong. The questions become: how well does my method work on this particular problem, and how large is the set of problems on which it works well.
+
+- Question and answer with neural networks researcher Yann LeCun
